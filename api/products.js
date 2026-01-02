@@ -69,44 +69,116 @@ export default function handler(req, res) {
       id: 10, 
       name: "Leather Handbag", 
       category: "Handbags", 
-      price: 2000, 
+      price: 15000, 
       image: "/images/bag1.avif" 
     },
     { 
       id: 11, 
+      name: "Travel Backpack", 
+      category: "Handbags", 
+      price: 2800, 
+      image: "/images/bag2.avif" 
+    },
+    { 
+      id: 12, 
+      name: "Party Clutch", 
+      category: "Handbags", 
+      price: 2000, 
+      image: "/images/bag3.avif" 
+    },
+    { 
+      id: 13, 
       name: "Gaming Laptop", 
       category: "Gadgets", 
       price: 65000, 
       image: "/images/gadgets.avif" 
     },
     { 
-      id: 12, 
+      id: 14, 
+      name: "Noise Cancelling Headphones", 
+      category: "Gadgets", 
+      price: 25000, 
+      image: "/images/headphone.avif" 
+    },
+    { 
+      id: 15, 
       name: "Smartphone", 
       category: "Gadgets", 
       price: 25000, 
-      image: "/images/gadgets.avif" 
+      image: "/images/mobile.avif" 
     },
     { 
-      id: 13, 
+      id: 16, 
       name: "Smart Watch", 
       category: "Watches", 
       price: 3000, 
       image: "/images/mens-watch.avif" 
     },
-    { 
-      id: 14, 
-      name: "Running Shoes", 
-      category: "Footwear", 
-      price: 1200, 
-      image: "/images/footwear.avif" 
+     { 
+      id: 17, 
+      name: "Mens Watch", 
+      category: "Watches", 
+      price: 2000, 
+      image: "/images/mens-watch.avif" 
+    },
+     { 
+      id: 18, 
+      name: "Kids Watch", 
+      category: "Watches", 
+      price: 300, 
+      image: "/images/kids-watch.avif" 
+    },
+     { 
+      id: 19, 
+      name: "Girls Watch", 
+      category: "Watches", 
+      price: 5000, 
+      image: "/images/girls-watch.avif" 
     },
     { 
-      id: 15, 
+      id: 20, 
+      name: "sneakers", 
+      category: "Footwear", 
+      price: 1200, 
+      image: "/images/shoe1.avif" 
+    },
+    { 
+      id: 21, 
+      name: "Heels", 
+      category: "Footwear", 
+      price: 1200, 
+      image: "/images/shoe2.avif" 
+    },
+    { 
+      id: 22, 
+      name: "Formal Shoes", 
+      category: "Footwear", 
+      price: 1200, 
+      image: "/images/shoe3.avif" 
+    },
+    { 
+      id: 23, 
       name: "RC Car", 
       category: "Toys", 
       price: 1500, 
-      image: "/images/Toys.avif" 
-    }
+      image: "/images/toy2.avif" 
+    },
+    
+    {
+      id: 24, 
+      name: "Teddy Bear", 
+      category: "Toys", 
+      price: 1500, 
+      image: "/images/toy1.avif" 
+    },
+    {
+      id: 25, 
+      name: "Barbie Doll", 
+      category: "Toys", 
+      price: 1500, 
+      image: "/images/toy3.avif" 
+    },
+
   ];
 
   // Backend response anuppugirathu
