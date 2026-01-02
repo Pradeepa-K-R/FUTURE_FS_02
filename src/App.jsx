@@ -1,37 +1,39 @@
 import { useState, useEffect } from 'react';
-import Login from "./Login"; // useEffect theva
+import Login from "./Login";
 import Register from "./Register";
-import { categories } from './products'; // Categories mattum inga irunthu edukrom
+// Note: categories mattum inga irunthu edukrom, products API la irunthu varum
+import { categories } from './products'; 
 import './App.css';
-
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  const [products, setProducts] = useState([]); // Empty array (Data varum pothu fill aagum)
+  
+  // Products initial-a empty-a irukkum
+  const [products, setProducts] = useState([]); 
+  
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isCheckout, setIsCheckout] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null); 
 
-  // --- BACKEND CONNECTING CODE ---
+  // --- BACKEND API CALL ---
   useEffect(() => {
-    fetch('http://localhost:5000/api/products') // Server kitta data kekurom
+    // Vercel-oda API folder kitta data kekurom
+    fetch('/api/products')
       .then(res => res.json())
-      .then(data => setProducts(data)) // Data vanthathum set pandrom
+      .then(data => setProducts(data))
       .catch(err => console.error("Error fetching data:", err));
   }, []);
 
- function addToCart(product) {
-  setCart([...cart, product]);
-  setShowToast(true);
-
-  setTimeout(() => {
-    setShowToast(false);
-  }, 2000);
-}
-
+  function addToCart(product) {
+    setCart([...cart, product]);
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
+  }
 
   function handleOrder(e) {
     e.preventDefault();
@@ -44,70 +46,52 @@ function App() {
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
   const filteredProducts = products.filter(p => p.category === selectedCategory);
+
   if (!isLoggedIn) {
-  if (showRegister) {
+    if (showRegister) {
+      return (
+        <Register
+          onRegister={() => setIsLoggedIn(true)}
+          goToLogin={() => setShowRegister(false)}
+        />
+      );
+    }
     return (
-      <Register
-        onRegister={() => setIsLoggedIn(true)}
-        goToLogin={() => setShowRegister(false)}
+      <Login
+        onLogin={() => setIsLoggedIn(true)}
+        goToRegister={() => setShowRegister(true)}
       />
     );
   }
 
   return (
-    <Login
-      onLogin={() => setIsLoggedIn(true)}
-      goToRegister={() => setShowRegister(true)}
-    />
-  );
-}
-
-
-  return (
     <div>
-     <nav className="navbar">
-  <div
-    className="logo"
-    onClick={() => {
-      setShowCart(false);
-      setIsCheckout(false);
-      setSelectedCategory(null);
-    }}
-  >
-    {showToast && (
-  <div className="toast">
-    ✅ Added to cart
-  </div>
-)}
+      <nav className="navbar">
+        <div className="logo" onClick={() => {
+            setShowCart(false);
+            setIsCheckout(false);
+            setSelectedCategory(null);
+          }}>
+          {showToast && <div className="toast">✅ Added to cart</div>}
+          🛍️ Pradee's <span>Store</span>
+        </div>
 
-    🛍️ Pradee's <span>Store</span>
-  </div>
-
-  {/* RIGHT SIDE BUTTONS */}
-  <div style={{ display: "flex", gap: "10px" }}>
-    <button
-      className="cart-btn"
-      onClick={() => {
-        setShowCart(!showCart);
-        setIsCheckout(false);
-      }}
-    >
-      {showCart ? "✖ Close" : `🛒 Cart (${cart.length})`}
-    </button>
-
-    <button
-      className="cart-btn"
-      onClick={() => {
-        setIsLoggedIn(false);
-        setShowRegister(false);
-        setCart([]);
-      }}
-    >
-      🚪 Logout
-    </button>
-  </div>
-</nav>
-
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button className="cart-btn" onClick={() => {
+              setShowCart(!showCart);
+              setIsCheckout(false);
+            }}>
+            {showCart ? "✖ Close" : `🛒 Cart (${cart.length})`}
+          </button>
+          <button className="cart-btn" onClick={() => {
+              setIsLoggedIn(false);
+              setShowRegister(false);
+              setCart([]);
+            }}>
+            🚪 Logout
+          </button>
+        </div>
+      </nav>
 
       {showCart ? (
         <div className="cart-page">
@@ -157,8 +141,8 @@ function App() {
                 ⬅ Back to All Categories
               </button>
               
-              {/* Data Backend la irunthu varala na Loading kaattum */}
-              {products.length === 0 ? <p style={{color: "white"}}>Loading Products...</p> : null}
+              {/* BACKEND LOADING STATE */}
+              {products.length === 0 ? <p style={{color: "white"}}>Loading Products from Backend...</p> : null}
 
               {filteredProducts.map((item) => (
                 <div key={item.id} className="card">
