@@ -13,7 +13,7 @@ export default function handler(req, res) {
       name: "Banarasi Saree", 
       category: "Sarees", 
       price: 3500, 
-      image: "/images/saree1.avif" 
+      image: "/images/saree2.avif" 
     },
     { 
       id: 3, 
@@ -27,7 +27,7 @@ export default function handler(req, res) {
       name: "Diamond Ring", 
       category: "Accessories", 
       price: 25000, 
-      image: "/images/jewel1.avif" 
+      image: "/images/jewel2.avif" 
     },
     { 
       id: 5, 
