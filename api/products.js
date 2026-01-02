@@ -107,57 +107,51 @@ export default function handler(req, res) {
       price: 25000, 
       image: "/images/mobile.avif" 
     },
-    { 
-      id: 16, 
-      name: "Smart Watch", 
-      category: "Watches", 
-      price: 3000, 
-      image: "/images/mens-watch.avif" 
-    },
+   
      { 
-      id: 17, 
+      id: 16, 
       name: "Mens Watch", 
       category: "Watches", 
       price: 2000, 
       image: "/images/mens-watch.avif" 
     },
      { 
-      id: 18, 
+      id: 17, 
       name: "Kids Watch", 
       category: "Watches", 
       price: 300, 
-      image: "/images/kids-watch.avif" 
+      image: "/images/kids-watch.jpg" 
     },
      { 
-      id: 19, 
+      id: 18, 
       name: "Girls Watch", 
       category: "Watches", 
       price: 5000, 
       image: "/images/girls-watch.avif" 
     },
     { 
-      id: 20, 
+      id: 19, 
       name: "sneakers", 
       category: "Footwear", 
       price: 1200, 
       image: "/images/shoe1.avif" 
     },
     { 
-      id: 21, 
+      id: 20, 
       name: "Heels", 
       category: "Footwear", 
       price: 1200, 
       image: "/images/shoe2.avif" 
     },
     { 
-      id: 22, 
+      id: 21, 
       name: "Formal Shoes", 
       category: "Footwear", 
       price: 1200, 
       image: "/images/shoe3.avif" 
     },
     { 
-      id: 23, 
+      id: 22, 
       name: "RC Car", 
       category: "Toys", 
       price: 1500, 
@@ -165,14 +159,14 @@ export default function handler(req, res) {
     },
     
     {
-      id: 24, 
+      id: 23, 
       name: "Teddy Bear", 
       category: "Toys", 
       price: 1500, 
       image: "/images/toy1.avif" 
     },
     {
-      id: 25, 
+      id: 24, 
       name: "Barbie Doll", 
       category: "Toys", 
       price: 1500, 
